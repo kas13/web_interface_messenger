@@ -1,0 +1,36 @@
+{% load static %}
+
+<html>
+
+	<head>
+		<link rel="stylesheet" href="{% static 'css/website.css' %}">
+		<script type="text/javascript">
+			function hi() {
+    			var objDiv = document.getElementById('content_container');
+				objDiv.scrollTop = objDiv.scrollHeight;
+			}
+
+		</script>
+	</head>
+	<body style="background: url(/static/image/grey.jpg);">
+		<div class="global_div">
+		<header>
+			<div class="header_div">
+				<div class="header_logo_div">
+					<h3>MESSENGER</h3>
+				</div>
+				<a href="/">logout</a>
+			</div>
+	        <div class="chats_div">
+	        	<ul>
+	        		{% for chat in chats_list %}
+	            		<li><a href="{% url 'chat' name=chat %}">{{chat}}</a></li>
+	        		{% endfor %}
+	        	</ul>      	
+	        </div>
+    	</header>
+        {% block content %}
+        {% endblock %}
+    	</div>
+	</body>
+</html>

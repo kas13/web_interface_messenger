@@ -1,0 +1,24 @@
+{% extends 'website/base.html' %}
+
+{% block content %}
+	<body onload="hi();">
+	<div class="message_and_input_div">
+		<div style="overflow:scroll;" class="content_container" id="content_container">
+		<ul>
+	    	{% for message in messages_list %}
+		    	<li>
+		    		<label> {{message.autor}}    {{message.timeMessage}}</label>
+		    		<p>{{message.textMessage}}</p>
+		    	</li>
+	    	{% endfor %}
+		</ul>
+		</div>
+		<form action="" method="post"> {% csrf_token %}
+			<div class="input_div">
+				<input class="text_input" type="text" name="text_input" size="20">
+				<input class="button_input" onclick="on_cl()" type="submit" name="button_input" value="Send">
+			</div>
+		</form>
+	</div>
+</body>
+{% endblock %}

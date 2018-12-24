@@ -1,0 +1,42 @@
+{% load static %}
+<html>
+
+	<head>
+		<link rel="stylesheet" href="{% static 'css/website.css' %}">
+	</head>
+
+	<body style="background: url(/static/image/grey.jpg);">
+		<div class="global_div">
+		<header>
+			<div class="header_div">
+				<div class="header_logo_div">
+					<h3>MESSENGER</h3>
+				</div>
+				<a href="/">login</a>
+			</div>
+    	</header>
+    	<form action="" method="post" class="new_form">{% csrf_token %}
+	    	<div class="login_div">
+		    	<ul>
+		    		<li>
+		    			<label for="email">email:</label> 
+		    			<p></p>
+		    			{{ form.email }}
+		    		</li>
+		    		<li>
+		    			<label for="password">password:</label>
+		    			<p></p>
+		    			{{ form.password }}
+		    		</li>
+		    		<li><input type="submit" value="login" /></li>
+		    	</ul>
+	    	</div>  
+	    	{% if error %}
+	    		<p>error login</p>
+	    	{% endif %}	
+		</form>
+    	</div>
+	</body>
+		
+
+</html>
